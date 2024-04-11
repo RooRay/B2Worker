@@ -1,4 +1,4 @@
-# B2Worker
+# B2Worker 
 The source code of a Cloudflare Worker that loads content from a public Backblaze B2 bucket onto a domain of your choosing :)
 
 ## Setup
@@ -12,3 +12,13 @@ Now, create a Worker on the Cloudflare dashboard ([or click here](https://dash.c
 Once Cloudflare deploys your worker, click "Configure Worker" and on the page that loads click "Settings" at the top and "Triggers" on the left sidebar once it loads. Under the "Custom Domains" section click "Add Custom Domain" and type in whatever domain or subdomain you like. Currently only domains active on Cloudflare can be used here. For this, I typed ```img.rooray.xyz``` but you can use whatever you like, you can also add more later. Follow the instructions provided by Cloudflare and then that's it! You're done here.
 
 Tip: In the same "Triggers" section under "Routers" Cloudflare gives you a .workers.dev domain that your Worker is also reachable at. You can keep this on if you like or disable it by clicking the 3 dots to the side of it and then "Disable route".
+
+## ShareX Setup
+
+For this part you'll need to make a Backblaze Application Key [here](https://secure.backblaze.com/app_keys.htm). Set the name of the key to whatever you like. You can restrict access to only the bucket you use for your uploads if you want to though I'd recommend keeping "Type of Access" on "Read and Write" rather than changing it.
+
+Copy the "keyID" and "applicationKey". Don't worry about the "keyName" as that is not super important.
+
+Open your ShareX destination settings and paste in the "keyID" into the "Application Key ID" box. Then paste the "applicationKey" into the "Application key (secret)" box. Then type your Bucket name in the respective box and check the option to use a Custom URL. Here you should type ```https://``` followed by the domain or subdomain you configured by your worker with no slash at the end.
+
+After that, close your Destination settings menu and change your Image uploader destination to Backblaze B2. That's you done!
