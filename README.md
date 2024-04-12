@@ -15,10 +15,10 @@ Tip: In the same "Triggers" section under "Routers" Cloudflare gives you a .work
 
 ## ShareX Setup
 
-For this part you'll need to make a Backblaze Application Key [here](https://secure.backblaze.com/app_keys.htm). Set the name of the key to whatever you like. You can restrict access to only the bucket you use for your uploads if you want to though I'd recommend keeping "Type of Access" on "Read and Write" rather than changing it.
+For this part you'll need to make a Backblaze Application Key [here](https://secure.backblaze.com/app_keys.htm). Set the name of the key to whatever you like. You can restrict access to only the bucket you use for your uploads if you want to though I'd recommend keeping Type of Access on "Read and Write" rather than changing it.
 
 Copy the "keyID" and "applicationKey". Don't worry about the "keyName" as that is not super important.
 
-Open your ShareX destination settings and paste in the "keyID" into the "Application Key ID" box. Then paste the "applicationKey" into the "Application key (secret)" box. Then type your Bucket name in the respective box and check the option to use a Custom URL. Here you should type ```https://``` followed by the domain or subdomain you configured by your worker with no slash at the end.
+Open your ShareX destination settings and paste in the "keyID" into the "Application Key ID" box. Then paste the "applicationKey" into the "Application key (secret)" box. Then type your Bucket name in the respective box and check the option to use a Custom URL. Here you should type ```https://``` followed by the domain or subdomain you configured for your worker with no slash at the end.
 
 After that, close your Destination settings menu and change your Image uploader destination to Backblaze B2. That's you done!
