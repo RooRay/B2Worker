@@ -1,3 +1,5 @@
+// Read github.com/RooRay/B2Worker for setup instructions
+
 export async function handleFile(event) {
     const url = new URL(event.request.url);
     const cache = caches.default;
@@ -5,6 +7,7 @@ export async function handleFile(event) {
     let contentType = 'application/octet-stream'; // Default content type
 
     if (!response) {
+        // Replace this URL with your friendly URL as per the instructions
         response = await fetch(`https://f003.backblazeb2.com/file/RooImg${url.pathname}`);
         const headers = { "cache-control": "public, max-age=14400" };
 
