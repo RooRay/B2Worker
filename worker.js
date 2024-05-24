@@ -1,5 +1,3 @@
-// Read github.com/RooRay/B2Worker for setup instructions
-
 export async function handleFile(event) {
     const url = new URL(event.request.url);
     const cache = caches.default;
@@ -7,7 +5,6 @@ export async function handleFile(event) {
     let contentType = 'application/octet-stream'; // Default content type
 
     if (!response) {
-        // Replace this URL with your friendly URL as per the instructions
         response = await fetch(`https://f003.backblazeb2.com/file/RooImg${url.pathname}`);
         const headers = { "cache-control": "public, max-age=14400" };
 
@@ -19,8 +16,8 @@ export async function handleFile(event) {
         event.waitUntil(cache.put(event.request, response.clone()));
     }
 
-    // If the file is an image, instruct the browser to display it in the browser.
-    if (contentType.startsWith('image/')) {
+    // If the file is an image or a text file, instruct the browser to display it in the browser.
+    if (contentType.startsWith('image/') || contentType === 'text/plain') {
         const disposition = `inline; filename="${url.pathname.split('/').pop()}"`;
         response.headers.set('Content-Disposition', disposition);
     }
@@ -40,7 +37,9 @@ function getContentTypeFromExtension(pathname) {
             return 'image/jpeg';
         case 'png':
             return 'image/png';
-        // Add more cases for other image formats if needed.
+        case 'txt':
+            return 'text/plain';
+        // Add more cases for other formats if needed.
         default:
             return 'application/octet-stream'; // Fallback content type.
     }
