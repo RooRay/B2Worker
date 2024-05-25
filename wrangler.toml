@@ -1,0 +1,10 @@
+# Top-level configuration
+name = "mediacdn"
+main = "worker.js"
+compatibility_date = "2023-05-25"
+
+workers_dev = false
+routes = [
+        { pattern = "cdn.rooray.xyz", custom_domain = true },
+        { pattern = "img.rooray.xyz", custom_domain = true}
+]
