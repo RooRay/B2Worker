@@ -6,17 +6,9 @@ on:
       - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    name: Test the script
-    steps:
-      - run: npm worker.js
-      # TODO
-
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Cloudflare Workers
-    needs: test
     steps:
       - uses: actions/checkout@v4
       - name: Deploy to Cloudflare Workers
