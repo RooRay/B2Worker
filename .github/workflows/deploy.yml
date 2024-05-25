@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test the script
     steps:
-      - run npm worker.js
+      - run: npm worker.js
       # TODO
 
   deploy:
